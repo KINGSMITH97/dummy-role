@@ -1,0 +1,15 @@
+---
+# tasks file for test
+- name: Install apache2 httpd
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+    update_cache: true
+
+- name: copy index.html to /var/www/html
+  ansible.builtin.copy:
+    src: files/index.html
+    dest: /var/www/html
+    owner: root
+    group: root
+    mode: "0644"
